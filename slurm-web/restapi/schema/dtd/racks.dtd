@@ -1,0 +1,38 @@
+<!ELEMENT rackmap (nodetypes,racks)>
+
+<!ELEMENT nodetypes (nodetype+)>
+
+<!ELEMENT nodetype EMPTY>
+<!ATTLIST nodetype id ID #REQUIRED>
+<!ATTLIST nodetype model CDATA #REQUIRED>
+<!ATTLIST nodetype height CDATA #REQUIRED>
+<!ATTLIST nodetype width CDATA #REQUIRED>
+
+<!ELEMENT racks (racksrow+)>
+<!ATTLIST racks posx CDATA #IMPLIED>
+<!ATTLIST racks posy CDATA #IMPLIED>
+<!ATTLIST racks width CDATA #IMPLIED>
+<!ATTLIST racks depth CDATA #IMPLIED>
+<!ATTLIST racks rackwidth CDATA #IMPLIED>
+
+<!ELEMENT racksrow (rack+)>
+<!ATTLIST racksrow posx CDATA #IMPLIED>
+
+<!ELEMENT rack (nodes)>
+<!ATTLIST rack id ID #REQUIRED>
+<!ATTLIST rack posy CDATA #IMPLIED>
+
+<!ELEMENT nodes (node|nodeset)*>
+
+<!ELEMENT node EMPTY>
+<!ATTLIST node id ID #REQUIRED>
+<!ATTLIST node type IDREF #REQUIRED>
+<!ATTLIST node posx CDATA #IMPLIED>
+<!ATTLIST node posy CDATA #IMPLIED>
+
+<!ELEMENT nodeset EMPTY>
+<!ATTLIST nodeset id ID #REQUIRED>
+<!ATTLIST nodeset type IDREF #REQUIRED>
+<!ATTLIST nodeset posx CDATA #IMPLIED>
+<!ATTLIST nodeset posy CDATA #IMPLIED>
+<!ATTLIST nodeset draw (up|down) "up">
